@@ -1,0 +1,20 @@
+const container = document.getElementById("pricing-container");
+
+const plans = [
+  { name: "VPS Basic", price: "$5/mo", features: ["1 CPU", "1GB RAM", "10GB SSD"] },
+  { name: "VPS Pro", price: "$15/mo", features: ["2 CPU", "4GB RAM", "50GB SSD"] },
+  { name: "Minecraft Server", price: "$10/mo", features: ["2 CPU", "4GB RAM", "1 Server"] },
+  { name: "Bot Hosting", price: "$7/mo", features: ["1 CPU", "2GB RAM", "Unlimited Bots"] },
+];
+
+plans.forEach(p => {
+  const card = document.createElement("div");
+  card.className = "plan-card";
+  card.innerHTML = `
+    <h3>${p.name}</h3>
+    <p>${p.price}</p>
+    <ul>${p.features.map(f => `<li>${f}</li>`).join("")}</ul>
+    <button class="buy-btn">Buy Now</button>
+  `;
+  container.appendChild(card);
+});
